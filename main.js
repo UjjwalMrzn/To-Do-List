@@ -28,13 +28,13 @@ mybutton.addEventListener('click' , function(){
         // checkbox.type = 'checkbox'
         // checkbox.className = 'chkbox'
 
-        // const deletebtn = document.createElement('div')
-        // deletebtn.innerHTML = '<i class="fas fa-trash"></i>';
-        // deletebtn.className = 'delete-btn'
+        const deletebtn = document.createElement('div')
+        deletebtn.innerHTML = '<i class="fas fa-trash"></i>';
+        deletebtn.className = 'delete-btn'
     
         // taskdiv.appendChild(checkbox);
         taskdiv.appendChild(taskspan);
-        // taskdiv.appendChild(deletebtn);
+        taskdiv.appendChild(deletebtn);
         tasklist.appendChild(taskdiv);
         // taskbox.appendChild(taskdiv)
 
@@ -54,9 +54,9 @@ mybutton.addEventListener('click' , function(){
 
         
 
-        // deletebtn.addEventListener('click' , function(){
-        //     tasklist.removeChild(taskdiv)
-        // });
+        deletebtn.addEventListener('click' , function(){
+            tasklist.removeChild(taskdiv)
+        });
         
     }
 }
