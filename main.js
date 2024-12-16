@@ -7,10 +7,10 @@ const tasklist = document.getElementById('tasklist');
 
 mybutton.addEventListener('click' , function(){
     const tasktext = user.value.trim();
-    // if(!tasktext){
-    //     alert('Please enter task');
-    //     return;
-    // }
+    if(!tasktext){
+        alert('Please enter task');
+        return;
+    }
 
     if(tasktext){
         const taskdiv = document.createElement('div')
