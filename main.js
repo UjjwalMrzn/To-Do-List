@@ -24,15 +24,15 @@ mybutton.addEventListener('click' , function(){
         const taskspan = document.createElement('span')
         taskspan.textContent = tasktext;
 
-        // const checkbox = document.createElement('input')
-        // checkbox.type = 'checkbox'
-        // checkbox.className = 'chkbox'
+        const checkbox = document.createElement('input')
+        checkbox.type = 'checkbox'
+        checkbox.className = 'chkbox'
 
         const deletebtn = document.createElement('div')
         deletebtn.innerHTML = '<i class="fas fa-trash"></i>';
         deletebtn.className = 'delete-btn'
     
-        // taskdiv.appendChild(checkbox);
+        taskdiv.appendChild(checkbox);
         taskdiv.appendChild(taskspan);
         taskdiv.appendChild(deletebtn);
         tasklist.appendChild(taskdiv);
@@ -41,16 +41,16 @@ mybutton.addEventListener('click' , function(){
         user.value = '';
 
 
-        // checkbox.addEventListener('change' , function(){
-        //     if(checkbox.checked){
-        //         taskspan.style.textDecoration = 'line-through';
-        //         taskspan.style.color = 'grey';
-        //     }else{
-        //         taskspan.style.textDecoration = 'none';
-        //         taskspan.style.color = 'white';
+        checkbox.addEventListener('change' , function(){
+            if(checkbox.checked){
+                taskspan.style.textDecoration = 'line-through';
+                taskspan.style.color = 'grey';
+            }else{
+                taskspan.style.textDecoration = 'none';
+                taskspan.style.color = 'white';
 
-        //     }
-        // })
+            }
+        })
 
         
 
