@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #322e55;
+    color: #fff;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #00c542;
+    color: #ffffff;
+    border-radius: 5px;
+
+}
+
+button:hover{
+    background-color: #237c40;
+}
+
+h1{
+  border-bottom: 2px solid #fff;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+#tasklist {
+    margin-top: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-transform: capitalize;
+   
+}
+
+.task {
+    display: flex;
+    align-items:baseline;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #fff;
+}
+
+.task span {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.delete-btn {
+    margin-left: auto;
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.delete-btn i {
+    font-size: 16px;
+}
+.task-checkbox {
+    margin-right: 10px;
+}
+
+.box{
+  border-style:hidden;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+  </style>
+</head>
+<body>
+
+<!--   <button id="btn">Click</button>
+
+  <script>
+    // Ensure the variable name is unique and declared only once
+    const btnElement = document.getElementById('btn');
+
+    btnElement.addEventListener('click', function() {
+      alert("hello");
+    });
+  </script> -->
+  
+  
+  
+ <input type='text' id='userId' placeholder='Enter task'>
+  <button id='btn'>Submit</button>
+
+ 
+    <h1>Task List</h1>
+
+    <div class="box">
+      <div id="tasklist">
+      
+      </div>
+
+    </div>
+
+<script src="main.js">
+
+</script>
+
+</body>
+</html>
