@@ -3,7 +3,26 @@ const mybutton = document.getElementById('btn');
 const tasklist = document.getElementById('tasklist');
 
 
- 
+function savetasks{
+    const tasks = [];
+    const taskdivs = document.querySelectorAll('.tasklist');
+    taskdivs.forEach((taskdiv) => {
+        const text = document.querySelector('span').textContent;
+        const completed = document.querySelector('input[type = "checkbox"]').checked;
+        tasks.push([text, completed]);
+
+    });
+    localStorage.getItem('tasks', JSON.stringify(tasks));
+}
+
+
+// createtaskelement(tasktext, false)
+// savetask();
+// user.value = '';
+
+// createtaskelement(tasktext, completed);
+// const taskelement = document.createElement('div')
+// taskelement.classList = 'task1';
 
 mybutton.addEventListener('click' , function(){
     const tasktext = user.value.trim();
@@ -11,6 +30,8 @@ mybutton.addEventListener('click' , function(){
         alert('Please enter task');
         return;
     }
+
+
 
     if(tasktext){
         const taskdiv = document.createElement('div')
