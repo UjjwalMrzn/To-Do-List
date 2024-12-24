@@ -2,17 +2,37 @@ const user = document.getElementById('userId');
 const mybutton = document.getElementById('btn');
 const tasklist = document.getElementById('tasklist');
 
+mybutton.addEventListener('click', () => {
+    const taskText = user.value.trim();
+    if (!taskText) {
+      alert('Please enter a task');
+      return;
+    }
+    addTaskToDOM(taskText);
+    savetasks();
+    user.value = '';
+  });
+  
 
-function savetasks{
+//Task Load
+window.onload = () => {
+   const savedtask = JSON.parse(localStorage.getItem('tasks')) || [];
+   savedtask.forEach((task) => {
+    addTaskToDOM(task.text , task.checked);
+   });
+};
+
+//Task Save
+function savetasks(){
     const tasks = [];
-    const taskdivs = document.querySelectorAll('.tasklist');
+    const taskdivs = document.querySelectorAll('.task');
     taskdivs.forEach((taskdiv) => {
-        const text = document.querySelector('span').textContent;
-        const completed = document.querySelector('input[type = "checkbox"]').checked;
-        tasks.push([text, completed]);
+        const text = taskdiv.querySelector('span').textContent;
+        const completed = taskdiv.querySelector('input[type = "checkbox"]').checked;
+        tasks.push({ text, checked: completed });
 
     });
-    localStorage.getItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 
@@ -24,16 +44,8 @@ function savetasks{
 // const taskelement = document.createElement('div')
 // taskelement.classList = 'task1';
 
-mybutton.addEventListener('click' , function(){
-    const tasktext = user.value.trim();
-    if(!tasktext){
-        alert('Please enter task');
-        return;
-    }
 
-
-
-    if(tasktext){
+function addTaskToDOM(taskText, isCompleted = false) {
         const taskdiv = document.createElement('div')
         taskdiv.className = 'task'
         // taskdiv.innerHTML = '<ol><li></li></ol>';
@@ -43,11 +55,15 @@ mybutton.addEventListener('click' , function(){
 
     
         const taskspan = document.createElement('span')
-        taskspan.textContent = tasktext;
+        taskspan.textContent = taskText;
 
         const checkbox = document.createElement('input')
         checkbox.type = 'checkbox'
         checkbox.className = 'chkbox'
+        checkbox.checked = isCompleted;
+        // checkbox.innerHTML = '<i class="fas fa-trash"></i>';
+
+
 
         const deletebtn = document.createElement('div')
         deletebtn.innerHTML = '<i class="fas fa-trash"></i>';
@@ -58,30 +74,31 @@ mybutton.addEventListener('click' , function(){
         taskdiv.appendChild(deletebtn);
         tasklist.appendChild(taskdiv);
         // taskbox.appendChild(taskdiv)
-
-        user.value = '';
+        // user.value = '';
 
 
         checkbox.addEventListener('change' , function(){
+            // checkbox.checked = isCompleted;
             if(checkbox.checked){
                 taskspan.style.textDecoration = 'line-through';
                 taskspan.style.color = 'grey';
             }else{
                 taskspan.style.textDecoration = 'none';
                 taskspan.style.color = 'white';
+                
 
             }
+            savetasks();
+
         })
 
         
 
         deletebtn.addEventListener('click' , function(){
             tasklist.removeChild(taskdiv)
+            savetasks();
+
         });
+
         
     }
-}
-
-
-
-)
