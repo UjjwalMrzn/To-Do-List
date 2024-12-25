@@ -1,6 +1,7 @@
 const user = document.getElementById('userId');
 const mybutton = document.getElementById('btn');
 const tasklist = document.getElementById('tasklist');
+const clearbtn = document.getElementById('clearAll');
 
 mybutton.addEventListener('click', () => {
     const taskText = user.value.trim();
@@ -16,8 +17,8 @@ mybutton.addEventListener('click', () => {
 
 //Task Load
 window.onload = () => {
-   const savedtask = JSON.parse(localStorage.getItem('tasks')) || [];
-   savedtask.forEach((task) => {
+   const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+   savedTasks.forEach((task) => {
     addTaskToDOM(task.text , task.checked);
    });
 };
@@ -68,6 +69,10 @@ function addTaskToDOM(taskText, isCompleted = false) {
         const deletebtn = document.createElement('div')
         deletebtn.innerHTML = '<i class="fas fa-trash"></i>';
         deletebtn.className = 'delete-btn'
+
+        // const clearbtn = document.createElement('div')
+        // clearbtn.innerHTML = '<i class=""fa-solid fa-plus></i>';
+        // clearbtn.className = 'clear-btn'
     
         taskdiv.appendChild(checkbox);
         taskdiv.appendChild(taskspan);
@@ -99,6 +104,17 @@ function addTaskToDOM(taskText, isCompleted = false) {
             savetasks();
 
         });
+
+        clearbtn.addEventListener('click' , function(){
+            localStorage.removeItem('tasks');
+            tasklist.innerHTML = ''; // Clear the task list in DOM
+
+        });
+        // document.getElementById('clearAll').addEventListener('click', () => {
+        //     localStorage.removeItem('tasks');
+        //     tasklist.innerHTML = ''; // Clear the task list in DOM
+        //  });
+         
 
         
     }
