@@ -2,6 +2,12 @@ const user = document.getElementById('userId');
 const mybutton = document.getElementById('btn');
 const tasklist = document.getElementById('tasklist');
 const clearbtn = document.getElementById('clearAll');
+const searchbtn = document.getElementById('serachId');
+
+function toggleSearch() {
+    const searchInput = document.querySelector('.search-input');
+    searchInput.classList.toggle('expand');
+  }
 
 mybutton.addEventListener('click', () => {
     const taskText = user.value.trim();

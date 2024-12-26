@@ -7,10 +7,14 @@
   <style>
 
     body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #333;
-    color: #000000;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #333; /* Background color fallback */
+  background-image: linear-gradient(100deg, #575656, #062e3f);
+    background-size: cover; /* Ensures the background covers the entire page */
+  color: #000000;
+  height: 100vh; /* Ensures the body takes up the full height */
+  margin: 0; /* Removes default margin */
 }
 
 .search-container {
@@ -97,9 +101,12 @@ button:hover{
 }
 
 h1{
+  display: inline-block; /* Ensures the width wraps to the text content */
   border-bottom: 2px solid #fff;
+  /* border-right: 5000px; */
+  /* padding-right: 200p ; */
   left: 500px;
-  right: 500px;
+  right: 450px;
   top: 100px;
   color: white;
   position: absolute;
@@ -170,26 +177,52 @@ h1{
   position: absolute;
   border-style:hidden;
   left: 500px;
-  right: 500px;
-  top: 200px;  
+  right: 450px;
+  top: 210px;  
   border-radius: 20px;
   /* transform: translateX(-50%); Adjust for element's own width */
 
 }
-
-.clearbutton{
+.function-box {
+  display: flex; /* Enables flexbox */
+  align-items: center; /* Aligns items vertically centered */
   position: absolute;
-  top: 27px;
-  right: 0px;
+  top: 165px;
+  right: 440px;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+}
+
+.clearbutton {
   background-color: red;
   color: #FFF;
   padding: 6px;
   border: none;
   border-radius: 5px;
+  margin-left: 5px; /* Adds space between buttons */
 }
-.clearbutton:hover{
+
+.clearbutton:hover {
   background-color: rgb(131, 18, 18);
 }
+
+
+
+.searchTask {
+  background-color: red;
+  color: #FFF;
+  padding: 6px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px; /* Adds space between buttons */
+}
+
+.searchTask:hover {
+  background-color: rgb(131, 18, 18);
+}
+
+
 
   </style>
 </head>
@@ -213,10 +246,21 @@ h1{
   </button>
   
   </div>
-  
-    <h1>Task List<button id='clearAll' class="clearbutton">Clear All</i></button>
-    </h1>
 
+  <div class="bigBox">
+
+    <h1>Task List
+    </h1>
+    <div class="function-box">
+      <button id='clearAll' class="clearbutton">Clear All</i></button>
+
+      <!-- <div class="search-container2"> -->
+        <button id="searchId" class="searchTask" onclick="toggleSearch()"><i class="fa fa-search"></i></button>
+        <!-- <input type="text" class="search-input" placeholder="Search..."> -->
+      <!-- </div> -->
+
+    </div>
+    
     
 
     <div class="box">
@@ -226,6 +270,9 @@ h1{
       </div>
 
     </div>
+
+  </div>
+  
 
 
 <script src="main.js">
