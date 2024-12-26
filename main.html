@@ -208,6 +208,13 @@ h1{
 }
 
 
+.search-container2 {
+  display: flex; /* Enables flexbox */
+  align-items: center; /* Aligns items vertically centered */
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+}
 
 .searchTask {
   background-color: red;
@@ -221,6 +228,23 @@ h1{
 .searchTask:hover {
   background-color: rgb(131, 18, 18);
 }
+
+/* Hide the input initially */
+.search-input {
+  width: 0;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+/* When input is expanded */
+.search-input.expand {
+  width: 200px;
+  opacity: 1;
+}
+
 
 
 
@@ -254,10 +278,10 @@ h1{
     <div class="function-box">
       <button id='clearAll' class="clearbutton">Clear All</i></button>
 
-      <!-- <div class="search-container2"> -->
+      <div class="search-container2">
         <button id="searchId" class="searchTask" onclick="toggleSearch()"><i class="fa fa-search"></i></button>
-        <!-- <input type="text" class="search-input" placeholder="Search..."> -->
-      <!-- </div> -->
+        <input type="text" class="search-input" placeholder="Search...">
+      </div>
 
     </div>
     
